@@ -27,10 +27,10 @@ def image_processing(img):
 if file is None:
     st.text("Please upload an image file")
 else:
-    file=Image.open(file)
-    st.image(file,use_column_width=True)
+    image=Image.open(file)
+    st.image(image,use_column_width=True)
     # Make prediction
-    result = image_processing(file)
+    result = image_processing(image)
     classes = { 0:'Speed limit (20km/h)',
             1:'Speed limit (30km/h)',
             2:'Speed limit (50km/h)',
@@ -76,6 +76,6 @@ else:
             42:'End no passing vehicle > 3.5 tons' }
     s = [str(i) for i in result]
     a = int("".join(s))
-    result = "Predicted Traffic🚦Sign is: "+classes[a]
+    string = "Predicted Traffic🚦Sign is: "+classes[a]
     
-    st.success(result)
+    st.success(string)
