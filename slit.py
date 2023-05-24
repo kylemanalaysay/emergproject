@@ -6,7 +6,6 @@ from werkzeug.utils import secure_filename
 def load_model():
   model=tf.keras.models.load_model('./model/TSR.h5')
   return model
-model=load_model()
 st.write("""
 # Traffic Sign Detection System"""
 )
@@ -16,8 +15,9 @@ import cv2
 from PIL import Image,ImageOps
 import numpy as np
 def image_processing(img):
+    model=load_model()
     data = []
-    image = Image.open(img).resize((30, 30))
+    image=ImageOps.fit(image_data,(30,30),Image.ANTIALIAS)
     data.append(np.array(image))
     X_test = np.array(data)
     predict_x = model.predict(X_test)
@@ -31,7 +31,7 @@ else:
     st.image(image,use_column_width=True)
     # Make prediction
     result = image_processing(image)
-    classes = { 0:'Speed limit (20km/h)',
+    classes = [ 0:'Speed limit (20km/h)',
             1:'Speed limit (30km/h)',
             2:'Speed limit (50km/h)',
             3:'Speed limit (60km/h)',
@@ -73,9 +73,7 @@ else:
             39:'Keep left',
             40:'Roundabout mandatory',
             41:'End of no passing',
-            42:'End no passing vehicle > 3.5 tons' }
-    s = [str(i) for i in result]
-    a = int("".join(s))
-    string = "Predicted Traffic🚦Sign is: "+classes[a]
+            42:'End no passing vehicle > 3.5 tons' ]
+    string="Predicted Traffic🚦Sign is: "+ classes[np.argmax(result)]
     
     st.success(string)
