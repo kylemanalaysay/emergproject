@@ -28,7 +28,7 @@ if file is None:
     st.text("Please upload an image file")
 else:
     file=Image.open(file)
-    st.image(image,use_column_width=True)
+    st.image(file,use_column_width=True)
     # Make prediction
     result = image_processing(file)
     classes = { 0:'Speed limit (20km/h)',
