@@ -17,7 +17,7 @@ import numpy as np
 def image_processing(img):
     model=load_model()
     data = []
-    image=ImageOps.fit(image_data,(30,30),Image.ANTIALIAS)
+    image=ImageOps.fit(img,(30,30),Image.ANTIALIAS)
     data.append(np.array(image))
     X_test = np.array(data)
     predict_x = model.predict(X_test)
