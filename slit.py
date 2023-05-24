@@ -74,6 +74,8 @@ else:
             40:'Roundabout mandatory',
             41:'End of no passing',
             42:'End no passing vehicle > 3.5 tons' }
-    string="Predicted Traffic🚦Sign is: "+ classes[np.argmax(result)]
+    s = [str(i) for i in result]
+    a = int("".join(s))
+    result="Predicted Traffic🚦Sign is: "+ classes[a]
     
-    st.success(string)
+    st.success(result)
