@@ -1,6 +1,4 @@
 streamlit
-flask
 werkzeug
-keras
 tensorflow
 opencv-python-headless
