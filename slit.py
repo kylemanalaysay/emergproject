@@ -3,7 +3,10 @@ import tensorflow as tf
 from werkzeug.utils import secure_filename
 
 @st.cache(allow_output_mutation=True)
-
+def load_model():
+  model=tf.keras.models.load_model('./model/TSR.h5')
+  return model
+model=load_model()
 st.write("""
 # Traffic Sign Detection System"""
 )
@@ -13,7 +16,6 @@ import cv2
 from PIL import Image,ImageOps
 import numpy as np
 def image_processing(img):
-    model = load_model('./model/TSR.h5')
     data = []
     image = Image.open(img).resize((30, 30))
     data.append(np.array(image))
