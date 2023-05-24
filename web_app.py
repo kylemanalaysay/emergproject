@@ -64,7 +64,7 @@ def image_processing(img):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('./templates/index.html')
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
