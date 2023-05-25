@@ -9,11 +9,15 @@ def load_model():
   return model
 
 st.title("Traffic Sign Detection System")
+
 st.header("A deep learning application to Detect Traffic Signs")
+
 st.subheader("Built by Kyle Manalaysay, Chester Perez, and Harry Gayla")
+
 st.markdown(
   "We're using the popular German Traffic Sign Recognition Benchmark dataset for Traffic Sign recognition. The model architecture combines convolutional layers for feature extraction and pooling layers for downsampling, followed by fully connected layers for classification. It also incorporates batch normalization and dropout for regularization and better training stability. We compile the model with an optimizer, loss function, and metrics. Then we train the model using the training data and evaluate its performance on the test data. Finally, we save the trained model using the save() method, specifying the desired file name ('TSR.h5' in this case)."
 )
+
 st.markdown(
   "The deployment of model in Web app, we select Streamlit Cloud Platform. We created our deep learning model and python script in Pycharm then commit and push it to GitHUB to be loaded in Streamlit app. Also installed the necessary packages and requirements for the deployment of Web app."
 )           
