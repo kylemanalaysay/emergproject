@@ -1,5 +1,6 @@
 import streamlit as st
 import tensorflow as tf
+import os
 from werkzeug.utils import secure_filename
 
 @st.cache(allow_output_mutation=True)
@@ -9,7 +10,6 @@ def load_model():
 st.write("""
 # Traffic Sign Detection System"""
 )
-file=st.file_uploader("Choose plant photo from computer",type=["jpg","png"])
 
 import cv2
 from PIL import Image,ImageOps
