@@ -14,23 +14,28 @@ file=st.file_uploader("Choose plant photo from computer",type=["jpg","png"])
 import cv2
 from PIL import Image,ImageOps
 import numpy as np
-def image_processing(img):
+def image_processing(image_path):
     model=load_model()
     data = []
-    image=ImageOps.fit(img,(30,30),Image.ANTIALIAS)
+    image = Image.open(image_path)
+    image=ImageOps.fit(image_path,(30,30),Image.ANTIALIAS)
     data.append(np.array(image))
     X_test = np.array(data)
     predict_x = model.predict(X_test)
     Y_pred = np.argmax(predict_x, axis=1)
     return Y_pred
 
+image_dir = "./For_Testing/"
+image_files = os.listdir(image_dir)  
+  
 if file is None:
-    st.text("Please upload an image file")
+    selected_image = st.selectbox("Select an image", image_files)
+    
 else:
-    image=Image.open(file)
-    st.image(image,use_column_width=True)
+    image_path = os.path.join(image_dir, selected_image)
+    st.image(image_path,use_column_width=True)
     # Make prediction
-    result = image_processing(image)
+    result = image_processing(image_path)
     classes = { 0:'Speed limit (20km/h)',
             1:'Speed limit (30km/h)',
             2:'Speed limit (50km/h)',
