@@ -30,7 +30,7 @@ image_files = os.listdir(image_dir)
   
 selected_image = st.selectbox("Select an image", image_files)
  
-else:
+if selected_image:
     image_path = os.path.join(image_dir, selected_image)
     st.image(image_path,use_column_width=True)
     # Make prediction
