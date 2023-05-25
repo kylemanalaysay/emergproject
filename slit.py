@@ -10,7 +10,7 @@ def load_model():
 
 st.title("Traffic Sign Detection System")
 
-st.header("Deep Learning Application to Detect Traffic Signs")
+st.header("A Deep Learning Model to Detect Traffic Signs")
 
 st.subheader("Built by Kyle Manalaysay, Chester Perez, and Harry Gayla")
 
