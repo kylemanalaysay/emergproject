@@ -28,9 +28,8 @@ def image_processing(image_path):
 image_dir = "./For_Testing/"
 image_files = os.listdir(image_dir)  
   
-if file is None:
-    selected_image = st.selectbox("Select an image", image_files)
-    
+selected_image = st.selectbox("Select an image", image_files)
+ 
 else:
     image_path = os.path.join(image_dir, selected_image)
     st.image(image_path,use_column_width=True)
