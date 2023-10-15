@@ -2,3 +2,4 @@ streamlit
 werkzeug
 tensorflow
 opencv-python-headless
+pillow
