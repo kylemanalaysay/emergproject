@@ -2,4 +2,4 @@ streamlit
 werkzeug
 tensorflow
 opencv-python-headless
-pillow
+Pillow==8.2.0
