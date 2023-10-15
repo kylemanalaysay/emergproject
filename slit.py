@@ -3,7 +3,7 @@ import tensorflow as tf
 import os
 from werkzeug.utils import secure_filename
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource()
 def load_model():
   model=tf.keras.models.load_model('./model/TSR.h5')
   return model
